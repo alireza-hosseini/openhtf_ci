@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  tools:
+    build: tools/.
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/openhtf_venv
+  tests:
+    depends_on:
+      - "tools"
+    build: tests/.
+    volumes:
+    - .:/openhtf_venv
